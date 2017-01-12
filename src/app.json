@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/splash/splash",
+    "pages/camp/camp",
+    "pages/grow/grow",
+    "pages/parent/parent",
+    "pages/profile/profile",
+    "pages/item/item"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2B92D5",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "嗨学营",
+    "backgroundColor": "#162A60",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#FFFFFF",
+    "selectedColor": "#162A60",
+    "borderStyle": "white",
+    "backgroundColor": "#2B92D5",
+    "list": [
+      {
+        "text": "TV幼儿园",
+        "pagePath": "pages/camp/camp",
+        "iconPath": "images/camp.png",
+        "selectedIconPath": "images/camp-actived.png"
+      },
+{
+        "text": "无忧成长",
+        "pagePath": "pages/grow/grow",
+        "iconPath": "images/grow.png",
+        "selectedIconPath": "images/grow-actived.png"
+      },
+{
+        "text": "父母挑选",
+        "pagePath": "pages/parent/parent",
+        "iconPath": "images/parent.png",
+        "selectedIconPath": "images/parent-actived.png"
+      },
+{
+        "text": "我的",
+        "pagePath": "pages/profile/profile",
+        "iconPath": "images/profile.png",
+        "selectedIconPath": "images/profile-actived.png"
+      }
+
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

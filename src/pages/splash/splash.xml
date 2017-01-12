@@ -1,0 +1,5 @@
+<view class="container">
+      <image src="../../images/splash.png" class="splash" mode="scaleToFill"/>
+      <image src="../../images/logo.png" class="logo" mode="widthFix"/>
+      <button class="start" bindtap="handleStart">立即体验</button>
+</view>
