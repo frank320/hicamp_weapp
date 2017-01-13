@@ -11,10 +11,21 @@ Page({
   },
 
   handleStart () {
-    // TODO: 访问历史的问题
-    wx.switchTab({
-      url: '../camp/camp'
-    })
+    app.hicamp.getToken()
+      .then(res=> {
+        return app.wechat.setStorage('token', res.data.token)
+      })
+      .then(r=> {
+        console.log('设置token本地存储成功')
+        //跳转到tab页面
+        wx.switchTab({
+          url: '../camp/camp'
+        })
+      })
+      .catch(err=> {
+        console.log('设置token本地存储失败')
+      })
+
   },
 
   /**

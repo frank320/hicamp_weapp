@@ -4,13 +4,13 @@
  * 用于将微信官方`API`封装为`Promise`方式
  * > 小程序支持以`CommonJS`规范组织代码结构
  */
-//const wechat = require('./utils/wechat.js')
+const wechat = require('./utils/wechat.js')
 
 /**
  * hicamp API 模块
  * @type {Object}
  */
-//const hicamp = require('./utils/hicamp.js')
+const hicamp = require('./utils/hicamp.js')
 
 
 App({
@@ -26,12 +26,12 @@ App({
   /**
    * WeChat API
    */
-  //wechat: wechat,
+  wechat: wechat,
 
   /**
    * Douban API
    */
-  //hicamp: hicamp,
+  hicamp: hicamp,
 
   /**
    * 生命周期函数--监听小程序初始化
