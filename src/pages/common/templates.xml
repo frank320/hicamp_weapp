@@ -1,0 +1,84 @@
+<!--轮播图模板-->
+<template name='slider'>
+    <view class='slide'>
+        <swiper indicator-dots="true"
+                autoplay="true" interval="3000" duration="400">
+            <block wx:for="{{imgUrls}}">
+                <swiper-item>
+                    <image src="{{host+item.pic}}" class="slide-image"/>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+</template>
+
+
+        <!-- 渲染普通的单项数据 -->
+<template name="item">
+<navigator url="../item/item?url={{item.posterSmall}}&name={{item.name}}">
+    <view class="item">
+        <image class="poster" src="{{ item.posterSmall }}"/>
+        <view class="meta">
+            <text class="title">片名: {{ item.name }}</text>
+            <view class="tags">标签:
+                <block wx:for="{{ item.tags }}" wx:key="{{ item._id }}">
+                    <block wx:if="{{index<5}}">
+                        {{ item }}
+                    </block>
+                </block>
+            </view>
+            <text class="playCount">播放次数: {{ item.play_count }}</text>
+        </view>
+    </view>
+</navigator>
+</template>
+
+
+        <!-- 纵向列表组件 供每一个列表展示的页面使用 -->
+<template name="video-list">
+<scroll-view scroll-y="true" class="list" bindscrolltolower="handleLoadMore">
+    <block wx:for="{{columns}}" wx:for-item="videos">
+        <text class='name'>{{videos.name}}</text>
+        <!--可直接对模板进行列表渲染-->
+        <template is="item" data="{{ item }}" wx:for="{{ videos.items }}" wx:key="{{ item._id }}"/>
+    </block>
+    <view class="tips">
+        <view wx:if="{{ hasMore }}">
+            <image src="/images/loading.gif" mode="aspectFill"/>
+            <text>玩了命的加载中...</text>
+        </view>
+        <view wx:else>
+            <text>没有更多内容了</text>
+        </view>
+    </view>
+</scroll-view>
+<loading hidden="{{ !loading }}">加载中...</loading>
+</template>
+
+        <!--横向列表组件-->
+<template name="video-list-x">
+<view class="board" scroll-y="true">
+    <block wx:for="{{ columns }}" wx:for-item="videos">
+        <view class="board-item">
+            <navigator url="../list/list" hover-class="none">
+                <view class="title">
+                    <text>{{ videos.name }}</text>
+                </view>
+            </navigator>
+            <scroll-view class="content" scroll-x="true">
+                <view class="inner">
+                    <navigator wx:for="{{ videos.items }}" wx:if="{{index<5}}" url="../item/item?url={{host+item.posterSmall}}&name={{item.name}}">
+                        <view class="video-item">
+                            <image src="{{ host+item.posterSmall }}" mode="aspectFill"/>
+                            <text>{{ item.name }}</text>
+                        </view>
+                    </navigator>
+                </view>
+            </scroll-view>
+        </view>
+    </block>
+</view>
+<loading hidden="{{ !loading }}">加载中...</loading>
+</template>
+
+

@@ -1,0 +1,66 @@
+.list {
+   display: flex;
+   flex: 1;
+   flex-direction: column;
+   height: 100%;
+  .name {
+    display: block;
+    margin:20rpx 0 0 40rpx;
+  }
+  .item {
+    display: flex;
+    flex-direction: row;
+    padding: 20rpx 40rpx;
+    cursor: pointer;
+
+    .poster {
+      width: 268rpx;
+      height: 150rpx;
+      min-width: 268rpx;
+      margin-right: 20rpx;
+      border-radius: 4rpx;
+    }
+
+    .meta {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .title {
+        font-size: 26rpx;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .playCount {
+        font-size: 24rpx;
+        color: #c0c0c0;
+      }
+
+      .tags {
+        font-size: 24rpx;
+        color: #999;
+      }
+    }
+
+  }
+  .tips {
+    font-size: 28rpx;
+    text-align: center;
+    padding: 30rpx;
+    color: #ccc;
+
+    image,
+    text {
+      vertical-align: middle;
+      color: #bababa;
+    }
+
+    image {
+      width: 40rpx;
+      height: 40rpx;
+      margin-right: 20rpx;
+    }
+  }
+}

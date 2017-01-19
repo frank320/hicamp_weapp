@@ -1,5 +1,5 @@
 // 获取全局应用程序实例对象
-// const app = getApp()
+const app = getApp()
 
 // 创建页面实例对象
 Page({
@@ -7,14 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: '详情'
+    url: '',
+    name: '',
+    copyright:'嗨学营'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad () {
-    // TODO: onLoad
+  onLoad (params) {
+    //只有此生命周期有该参数params
+    this.setData({url: params.url, name: params.name})
   },
 
   /**

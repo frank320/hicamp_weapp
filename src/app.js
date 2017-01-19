@@ -12,7 +12,11 @@ const wechat = require('./utils/wechat.js')
  */
 const hicamp = require('./utils/hicamp.js')
 
-
+/**
+ * config配置文件
+ */
+const config = require('./utils/config.js')
+const host = 'http://' + config.backendHost + ':' + config.backendPort
 App({
   /**
    * Global shared
@@ -20,7 +24,8 @@ App({
    */
   data: {
     name: 'Hicamp ChildrenTV',
-    version: '0.1.0'
+    version: '0.1.0',
+    host: host
   },
 
   /**

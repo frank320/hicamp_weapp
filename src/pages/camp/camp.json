@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "嗨学营 « TV幼儿园"
+  "navigationBarTitleText": "TV幼儿园",
+  //设置后整个页面不可以滚动 但局部可以设置滚动
+  "disableScroll": true
 }

@@ -1,5 +1,5 @@
 // 获取全局应用程序实例对象
-// const app = getApp()
+const app = getApp()
 
 // 创建页面实例对象
 Page({
@@ -7,14 +7,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: '我的'
+    title: 'About',
+    loading: true,
+    userInfo: {
+      nickName: 'frank',
+      avatarUrl: '',
+      city: '北京'
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad () {
-    // TODO: onLoad
+    app.wechat.getUserInfo()
+      .then(r=> {
+        this.setData({loading: false, userInfo: r.userInfo})
+        console.log(r)
+      })
+      .catch((err)=> {
+        this.setData({loading: true})
+        console.log(err)
+      })
   },
 
   /**

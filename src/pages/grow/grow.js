@@ -1,5 +1,5 @@
 // 获取全局应用程序实例对象
-// const app = getApp()
+const app = getApp()
 
 // 创建页面实例对象
 Page({
@@ -7,14 +7,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: '无忧成长'
+    host: app.data.host,
+    imgUrls: [],
+    loading: true,
+    columns: []
+  },
+  /**
+   * 控制页面数据加载
+   */
+  handleLoad () {
+    this.setData({loading: true})
+    return app.wechat.getStorage('token')
+      .then(r=> {
+        return app.hicamp.getGrowData(r.data)
+      })
+      .then(r=> {
+        this.setData({imgUrls: r.data.banner, loading: false, columns: r.data.columns})
+      })
+      .catch(e => {
+        this.handleLoad()
+        console.error(e)
+      })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad () {
-    // TODO: onLoad
+    this.handleLoad()
   },
 
   /**

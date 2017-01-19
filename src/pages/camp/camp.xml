@@ -1,4 +1,9 @@
-<!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
+<!--引入模板文件时 不用加后缀-->
+<import src='../common/templates'/>
+
 <view class="container">
-  <text class="title">{{ title }}</text>
+<!--使用模板文件中的模板 指定name属性-->
+  <template is='slider' data="{{host,imgUrls}}"/>
+  <template is='video-list' data="{{loading,columns,subtitle}}"/>
 </view>
+

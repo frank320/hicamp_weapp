@@ -1,4 +1,7 @@
 <!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
-<view class="container">
-  <text class="title">{{ title }}</text>
-</view>
+<import src='../common/templates'/>
+
+<scroll-view class="container" scroll-y="true">
+<template is='slider' data="{{host,imgUrls}}"/>
+<template is='video-list-x' data="{{host,loading,columns,subtitle}}"/>
+</scroll-view>

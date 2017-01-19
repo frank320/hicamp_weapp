@@ -1,9 +1,9 @@
 /**
- * Created by wikeLi on 2017/1/13.
+ * Created by frank on 2017/1/13.
  */
 const Promise = require('./bluebird.js')
 const config = require('./config.js')
-const host = 'http://' + config.backendHost + ':' + config.backendPort;
+const host = 'http://' + config.backendHost + ':' + config.backendPort
 //随机生成字符串 作为机器的id
 function generateRandomString() {
   let i = '';
@@ -58,7 +58,7 @@ function getGrowData(token) {
 function getParentData(token) {
   return new Promise((resolve, reject)=> {
     wx.request({
-      url: `${host}/api/backend/tv/menu_info?id=57fb39eeed5d7c7c50a4eeb9`,
+      url: `${host}/api/backend/tv/filter?id=57fb39eeed5d7c7c50a4eeb9`,
       header: {
         'Content-Type': 'json',
         "Authorization": 'Bearer ' + token
