@@ -11,23 +11,28 @@ Page({
     loading: true,
     userInfo: {
       nickName: 'frank',
-      avatarUrl: '',
+      avatarUrl: "http://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83epmiaATdWXUc0kasW271MeD6FKFq7tSwk9J6lvSEoia8jRib1H9zKuKOUwO1zujlFOIpBqibSgqXwOv9Q/0",
       city: '北京'
-    }
+    },
+    copyright:'土星成长文化有限公司 2016'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad () {
-    app.wechat.getUserInfo()
-      .then(r=> {
-        this.setData({loading: false, userInfo: r.userInfo})
+    app.wechat.login()
+      .then((r)=> {
         console.log(r)
+        return app.wechat.getUserInfo()
+      })
+      .then(r=> {
+        console.log(r)
+        this.setData({loading: false, userInfo: r.userInfo})
       })
       .catch((err)=> {
-        this.setData({loading: true})
-        console.log(err)
+        //this.onLoad()
+        console.log('err:', err)
       })
   },
 
