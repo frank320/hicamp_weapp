@@ -67,9 +67,9 @@
             </navigator>
             <scroll-view class="content" scroll-x="true">
                 <view class="inner">
-                    <navigator wx:for="{{ videos.items }}" wx:if="{{index<5}}" url="../item/item?url={{host+item.posterSmall}}&name={{item.name}}">
+                    <navigator wx:for="{{ videos.items }}" wx:if="{{index<5}}" url="../item/item?url={{item.posterSmall}}&name={{item.name}}">
                         <view class="video-item">
-                            <image src="{{ host+item.posterSmall }}" mode="aspectFill"/>
+                            <image src="{{ item.posterSmall }}" mode="aspectFill"/>
                             <text>{{ item.name }}</text>
                         </view>
                     </navigator>

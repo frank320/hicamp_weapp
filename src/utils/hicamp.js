@@ -3,7 +3,7 @@
  */
 const Promise = require('./bluebird.js')
 const config = require('./config.js')
-const host = 'http://' + config.backendHost + ':' + config.backendPort
+const host = 'http://' + config.backendHost
 //随机生成字符串 作为机器的id
 function generateRandomString() {
   let i = '';
@@ -18,9 +18,9 @@ function getToken() {
   return new Promise((resolve, reject)=> {
     wx.request({
       method: 'POST',
-      url: `${host}/api/user/actions/request-token`,
+      url: `${host}/api/backend/user/requestToken`,
       data: {cardId: deviceId},
-      header: {'Content-Type': 'json'},
+      header: {'Content-Type': 'application/json'},
       success: resolve,
       fail: reject
     })
@@ -32,7 +32,7 @@ function getTVCampData(token) {
     wx.request({
       url: `${host}/api/backend/tv/menu_info?id=57fb094a51edb906111e9217`,
       header: {
-        'Content-Type': 'json',
+        'Content-Type': 'application/json',
         "Authorization": 'Bearer ' + token
       },
       success: resolve,
@@ -46,7 +46,7 @@ function getGrowData(token) {
     wx.request({
       url: `${host}/api/backend/tv/menu_info?id=577a12833f83d5ee27e6d9eb`,
       header: {
-        'Content-Type': 'json',
+        'Content-Type': 'application/json',
         "Authorization": 'Bearer ' + token
       },
       success: resolve,
@@ -60,7 +60,7 @@ function getParentData(token) {
     wx.request({
       url: `${host}/api/backend/tv/filter?id=57fb39eeed5d7c7c50a4eeb9`,
       header: {
-        'Content-Type': 'json',
+        'Content-Type': 'application/json',
         "Authorization": 'Bearer ' + token
       },
       success: resolve,
@@ -74,7 +74,7 @@ function getMyfellowsData(token) {
     wx.request({
       url: `${host}/api/backend/tv/myFellows`,
       header: {
-        'Content-Type': 'json',
+        'Content-Type': 'application/json',
         "Authorization": 'Bearer ' + token
       },
       success: resolve,

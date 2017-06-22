@@ -13,7 +13,11 @@ Page({
   handleStart () {
     app.hicamp.getToken()
       .then(res=> {
-        return app.wechat.setStorage('token', res.data.token)
+        if (!res.data.token) {
+          return Promise.reject('err')
+        } else {
+          return app.wechat.setStorage('token', res.data.token)
+        }
       })
       .then(r=> {
         console.log('设置token本地存储成功')

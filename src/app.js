@@ -16,7 +16,7 @@ const hicamp = require('./utils/hicamp.js')
  * config配置文件
  */
 const config = require('./utils/config.js')
-const host = 'http://' + config.backendHost + ':' + config.backendPort
+const host = 'http://' + config.backendHost
 App({
   /**
    * Global shared

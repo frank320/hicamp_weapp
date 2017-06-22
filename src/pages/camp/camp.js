@@ -21,6 +21,7 @@ Page({
         return app.hicamp.getTVCampData(r.data)
       })
       .then(r=> {
+        console.log(r)
         this.setData({imgUrls: r.data.banner, loading: false, columns: r.data.columns})
       })
       .catch(e => {
